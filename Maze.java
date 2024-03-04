@@ -47,7 +47,6 @@ public class Maze implements DisplayableMaze{
    /** @return contents of maze grid at row i, column j */
    public MazeContents getContents(int i, int j) {
     return mazeGrid[i][j]; 
-
    }
 
    /** @return location of maze start point */
@@ -60,4 +59,11 @@ public class Maze implements DisplayableMaze{
     return this.finish; 
    }
 
+   public void setVisited(int i, int j) {
+    mazeGrid[i][j] = MazeContents.VISITED; 
+   }
+
+   public void setPath(int i, int j) {
+    mazeGrid[i][j] = MazeContents.PATH; 
+   }
 }

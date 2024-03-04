@@ -56,6 +56,7 @@ public class MazeLocation {
     return (this.row == loc.row)&&(this.col == loc.col);
   }
 
+  
   /** 
     *  Return a neighboring coordinate in the chosen direction
     *
@@ -115,4 +116,6 @@ public class MazeLocation {
   public String toString() {
     return "("+row+","+col+")";
   }
+
+ 
 }
