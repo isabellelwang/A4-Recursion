@@ -13,7 +13,9 @@ class SolveMaze {
   public static boolean recursiveSolver(Maze maze, MazeLocation currentLocation) {
     try {
       Thread.sleep(50);
-    } catch (InterruptedException e) {};
+    } catch (InterruptedException e) {
+    }
+    ;
 
     MazeContents currentContents = maze.getContents(currentLocation.getRow(), currentLocation.getCol());
     System.out.println(currentLocation.getRow());
@@ -31,8 +33,8 @@ class SolveMaze {
           || recursiveSolver(maze, currentLocation.neighbor(MazeDirection.SOUTH))
           || recursiveSolver(maze, currentLocation.neighbor(MazeDirection.WEST))
           || recursiveSolver(maze, currentLocation.neighbor(MazeDirection.EAST));
-      
-      if(!getToFinish){
+
+      if (!getToFinish) {
         maze.setDeadEnd(currentLocation.getRow(), currentLocation.getCol());
       }
 
@@ -46,13 +48,12 @@ class SolveMaze {
     Maze maze = new Maze();
     MazeViewer viewer = new MazeViewer(maze);
 
-    //maze.initDemoMaze(); 
-
-    // Scanner in = new Scanner(System.in);
-    // System.out.println("maze1 or maze2");
-    // String mazeInput = in.next();
-    // System.out.println(mazeInput);
-    maze.initMaze("maze1");
+    Scanner in = new Scanner(System.in);
+    System.out.println("maze1 or maze2");
+    String mazeInput = in.next();
+    System.out.println(mazeInput);
+    
+    maze.initMaze(mazeInput);
 
     if (startMaze(maze)) {
       System.out.println("Finished!");
