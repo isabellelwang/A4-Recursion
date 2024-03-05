@@ -39,8 +39,7 @@ class SolveMaze {
   public static void main(String[] args) {
     Maze maze = new Maze();
     MazeViewer viewer = new MazeViewer(maze);
-    maze.initDemoMaze("maze1");
-
+    maze.initMaze("maze1");
 
     if (startMaze(maze)) {
       System.out.println("Finished!");

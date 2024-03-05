@@ -40,7 +40,7 @@ public class SolveMazes {
     public static void main(String[] args) {
         Maze maze = new Maze();
         MazeViewer viewer = new MazeViewer(maze);
-        maze.initDemoMaze();
+        maze.initMaze("maze1");
 
         // Scanner file = null;
         // if (args.length >0) {

@@ -113,70 +113,120 @@ public class Maze implements DisplayableMaze {
    * 
    * @param filename
    */
-  public void initDemoMaze(String filename) {
-    Scanner mazeFile = null;
-    try {
-      mazeFile = new Scanner(new File(filename));
+  // public void initDemoMaze(String filename) {
+  // Scanner mazeFile = null;
+  // try {
+  // mazeFile = new Scanner(new File(filename));
 
-    } catch (FileNotFoundException e) {
-      System.out.println("File not found.");
-    }
+  // while (mazeFile.hasNext()) {
+  // this.width++;
+  // }
+  // while (mazeFile.hasNextLine()) {
+  // this.height++;
+  // }
 
-    while (mazeFile.hasNext()) {
-      this.width++;
-    }
-    while (mazeFile.hasNextLine()) {
-      this.height++;
-    }
+  // this.mazeGrid = new MazeContents[height][width];
+  // this.start = new MazeLocation(0, 0);
+  // this.finish = new MazeLocation(0, 0);
 
+  // int col = 0;
+
+  // while (mazeFile.hasNextLine()) {
+  // System.out.println("next line");
+  // String line = mazeFile.nextLine();
+  // System.out.println(line);
+
+  // for (int i = 0; i < line.length(); i++) {
+  // System.out.println(col + " " + i);
+  // if (String.valueOf(line.charAt(i)).equals("#")) {
+  // this.mazeGrid[col][i] = MazeContents.WALL;
+  // } else if (String.valueOf(line.charAt(i)).equals(".")) {
+  // this.mazeGrid[col][i] = MazeContents.OPEN;
+  // } else if (String.valueOf(line.charAt(i)).equals("S")) {
+  // this.start.setRow(i);
+  // this.start.setCol(col);
+  // } else if (String.valueOf(line.charAt(i)).equals("F")) {
+  // this.finish.setRow(i);
+  // this.finish.setCol(col);
+  // }
+  // }
+  // col++;
+  // }
+  // mazeFile.close();
+  // } catch (FileNotFoundException e) {
+  // System.out.println("File not found.");
+  // }
+
+  // try {
+  // file = new Scanner(new File(filename));
+  // } catch (FileNotFoundException e) {
+  // System.err.println("Cannot locate file.");
+  // System.exit(-1);
+  // }
+
+  // for(int i = 0; i < height; i++) {
+  // for(int k = 0; k < width; k++) {
+  // while(file.hasNext() || file.hasNextLine()) {
+  // if(file.next().equals("#")) {
+  // mazeGrid[i][j] = MazeContents.WALL;
+  // }
+  // else if(file.next())
+  // }
+  // }
+  // }
+
+  // while(file.hasNext() || file.hasNextLine()) {
+  // if(file.hasNext()
+  // }
+
+  // }
+
+  public void initMaze(String fileName) {
+    this.height = 21; // row
+    this.width = 27; // column
     this.mazeGrid = new MazeContents[height][width];
     this.start = new MazeLocation(0, 0);
     this.finish = new MazeLocation(0, 0);
-    int col = 0;
 
-    while (mazeFile.hasNextLine()) {
-      System.out.println("next line");
-      String data = mazeFile.nextLine();
-      System.out.println(data);
-      for (int i = 0; i < data.length(); i++) {
-        System.out.println(col + " " + i);
-        if (String.valueOf(data.charAt(i)).equals("#")) {
-          this.mazeGrid[col][i] = MazeContents.WALL;
-        } else if (String.valueOf(data.charAt(i)).equals(".")) {
-          this.mazeGrid[col][i] = MazeContents.OPEN;
-        } else if (String.valueOf(data.charAt(i)).equals("S")) {
-          this.start.setRow(i);
-          this.start.setCol(col);
-        } else if (String.valueOf(data.charAt(i)).equals("F")) {
-          this.finish.setRow(i);
-          this.finish.setCol(col);
+    try {
+
+      File file = new File(fileName);
+      Scanner reader = new Scanner(file);
+
+      int row = 0;
+      String data = reader.nextLine();
+
+      while (reader.hasNextLine()) {
+        System.out.println("next line");
+
+        System.out.println(data);
+
+        for (int col = 0; col < width; col++) {
+          System.out.println(row + " " + col);
+          if (String.valueOf(data.charAt(col)).equals("#")) {
+            this.mazeGrid[row][col] = MazeContents.WALL;
+            System.out.println(mazeGrid[row][col]);
+          } else if (String.valueOf(data.charAt(col)).equals(".")) {
+            this.mazeGrid[row][col] = MazeContents.OPEN;
+            System.out.println(mazeGrid[row][col]);
+          } else if (String.valueOf(data.charAt(col)).equals("S")) {
+            this.start.setRow(row);
+            this.start.setCol(col);
+            this.mazeGrid[row][col] = MazeContents.VISITED;
+          } else if (String.valueOf(data.charAt(col)).equals("F")) {
+            this.finish.setRow(row);
+            this.finish.setCol(col);
+            this.mazeGrid[row][col] = MazeContents.PATH;
+          }
         }
+        row++;
+        data = reader.nextLine();
+
       }
-      col++;
+      reader.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("File not found.");
     }
-    mazeFile.close();
-
-    // try {
-    // file = new Scanner(new File(filename));
-    // } catch (FileNotFoundException e) {
-    // System.err.println("Cannot locate file.");
-    // System.exit(-1);
-    // }
-
-    // for(int i = 0; i < height; i++) {
-    // for(int k = 0; k < width; k++) {
-    // while(file.hasNext() || file.hasNextLine()) {
-    // if(file.next().equals("#")) {
-    // mazeGrid[i][j] = MazeContents.WALL;
-    // }
-    // else if(file.next())
-    // }
-    // }
-    // }
-
-    // while(file.hasNext() || file.hasNextLine()) {
-    // if(file.hasNext()
-    // }
 
   }
 
@@ -219,8 +269,9 @@ public class Maze implements DisplayableMaze {
 
   public static void main(String[] args) {
     Maze maze = new Maze();
+    // MazeViewer viewer = new MazeViewer(maze);
+    maze.initMaze("maze1");
 
-    maze.initDemoMaze("maze1");
-    maze.getStart();
+    System.out.println(maze.getContents(0, 0));
   }
 }
