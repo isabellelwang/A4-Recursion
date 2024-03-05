@@ -5,8 +5,6 @@ class SolveMaze {
 
   public static boolean startMaze(Maze maze) {
     MazeLocation startLocation = maze.getStart();
-    System.out.println(startLocation.getRow());
-    System.out.println(startLocation.getCol());
     return recursiveSolver(maze, startLocation);
   }
 
@@ -18,8 +16,6 @@ class SolveMaze {
     ;
 
     MazeContents currentContents = maze.getContents(currentLocation.getRow(), currentLocation.getCol());
-    System.out.println(currentLocation.getRow());
-    System.out.println(currentLocation.getCol());
 
     if (currentLocation.equals(maze.getFinish())) {
       maze.setPath(currentLocation.getRow(), currentLocation.getCol());
@@ -46,13 +42,19 @@ class SolveMaze {
 
   public static void main(String[] args) {
     Maze maze = new Maze();
-    MazeViewer viewer = new MazeViewer(maze);
 
     Scanner in = new Scanner(System.in);
-    System.out.println("maze1 or maze2");
-    String mazeInput = in.next();
-    System.out.println(mazeInput);
+    System.out.println("Please type: maze1 or maze2");
+    String mazeInput = in.nextLine(); 
+
+    while(!(mazeInput.equals("maze1") || mazeInput.equals("maze2"))) {
+      System.out.print("Invalid Input. Press enter to continue");
+      in.nextLine(); 
+      System.out.println("Please type: maze1 or maze2");
+      mazeInput = in.nextLine();
+    }
     
+    MazeViewer viewer = new MazeViewer(maze);
     maze.initMaze(mazeInput);
 
     if (startMaze(maze)) {

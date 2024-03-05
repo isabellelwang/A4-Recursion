@@ -121,31 +121,31 @@ public class Maze implements DisplayableMaze {
       int row = 0;
 
       while (reader.hasNextLine()) {
-        System.out.println("next line");
+        // System.out.println("next line");
 
         String data = reader.nextLine();
-        System.out.println(data);
+        // System.out.println(data);
 
         for (int col = 0; col < data.length(); col++) {
-          System.out.println(row + " " + col);
+          // System.out.println(row + " " + col);
           if (String.valueOf(data.charAt(col)).equals("#")) {
             this.mazeGrid[row][col] = MazeContents.WALL;
-            System.out.println(mazeGrid[row][col]);
+            // System.out.println(mazeGrid[row][col]);
           } else if (String.valueOf(data.charAt(col)).equals(".")) {
             this.mazeGrid[row][col] = MazeContents.OPEN;
-            System.out.println(mazeGrid[row][col]);
+            // System.out.println(mazeGrid[row][col]);
           } else if (String.valueOf(data.charAt(col)).equals("S")) {
-            this.start = new MazeLocation(row, col); 
-            this.mazeGrid[row][col] = MazeContents.OPEN; 
-            //this.mazeGrid[row][col] = MazeContents.VISITED;
+            this.start = new MazeLocation(row, col);
+            this.mazeGrid[row][col] = MazeContents.OPEN;
+            // this.mazeGrid[row][col] = MazeContents.VISITED;
           } else if (String.valueOf(data.charAt(col)).equals("F")) {
-            this.mazeGrid[row][col] = MazeContents.OPEN; 
-            this.finish = new MazeLocation(row, col); 
-            //this.mazeGrid[row][col] = MazeContents.PATH;
+            this.mazeGrid[row][col] = MazeContents.OPEN;
+            this.finish = new MazeLocation(row, col);
+            // this.mazeGrid[row][col] = MazeContents.PATH;
           }
         }
         row++;
-        //data = reader.nextLine();
+        // data = reader.nextLine();
       }
       reader.close();
     } catch (FileNotFoundException e) {
@@ -195,6 +195,6 @@ public class Maze implements DisplayableMaze {
     // MazeViewer viewer = new MazeViewer(maze);
     maze.initMaze("maze2");
 
-    //System.out.println(maze.getContents(0, 0));
+    // System.out.println(maze.getContents(0, 0));
   }
 }
