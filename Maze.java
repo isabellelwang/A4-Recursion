@@ -19,174 +19,99 @@ public class Maze implements DisplayableMaze {
    * * @author Tianah Gooden
    * * @version October 17th 2023
    */
-  // public void initDemoMaze() { // String fileName,
-  // this.height = 10;
-  // this.width = 8;
-  // this.mazeGrid = new MazeContents[height][width];
-  // this.start = new MazeLocation(1, 1);
-  // this.finish = new MazeLocation(8, 6);
+  public void initDemoMaze() { // String fileName,
+    this.height = 10;
+    this.width = 8;
+    this.mazeGrid = new MazeContents[height][width];
+    this.start = new MazeLocation(1, 1);
+    this.finish = new MazeLocation(8, 6);
 
-  // this.mazeGrid[0][0] = MazeContents.WALL;
-  // this.mazeGrid[0][1] = MazeContents.WALL;
-  // this.mazeGrid[0][2] = MazeContents.WALL;
-  // this.mazeGrid[0][3] = MazeContents.WALL;
-  // this.mazeGrid[0][4] = MazeContents.WALL;
-  // this.mazeGrid[0][5] = MazeContents.WALL;
-  // this.mazeGrid[0][6] = MazeContents.WALL;
-  // this.mazeGrid[0][7] = MazeContents.WALL;
-  // this.mazeGrid[1][0] = MazeContents.WALL;
-  // this.mazeGrid[1][1] = MazeContents.OPEN;
-  // this.mazeGrid[1][2] = MazeContents.OPEN;
-  // this.mazeGrid[1][3] = MazeContents.OPEN;
-  // this.mazeGrid[1][4] = MazeContents.OPEN;
-  // this.mazeGrid[1][5] = MazeContents.OPEN;
-  // this.mazeGrid[1][6] = MazeContents.WALL;
-  // this.mazeGrid[1][7] = MazeContents.WALL;
-  // this.mazeGrid[2][0] = MazeContents.WALL;
-  // this.mazeGrid[2][1] = MazeContents.WALL;
-  // this.mazeGrid[2][2] = MazeContents.OPEN;
-  // this.mazeGrid[2][3] = MazeContents.WALL;
-  // this.mazeGrid[2][4] = MazeContents.WALL;
-  // this.mazeGrid[2][5] = MazeContents.OPEN;
-  // this.mazeGrid[2][6] = MazeContents.WALL;
-  // this.mazeGrid[2][7] = MazeContents.WALL;
-  // this.mazeGrid[3][0] = MazeContents.WALL;
-  // this.mazeGrid[3][1] = MazeContents.OPEN;
-  // this.mazeGrid[3][2] = MazeContents.WALL;
-  // this.mazeGrid[3][3] = MazeContents.OPEN;
-  // this.mazeGrid[3][4] = MazeContents.OPEN;
-  // this.mazeGrid[3][5] = MazeContents.OPEN;
-  // this.mazeGrid[3][6] = MazeContents.WALL;
-  // this.mazeGrid[3][7] = MazeContents.WALL;
-  // this.mazeGrid[4][0] = MazeContents.WALL;
-  // this.mazeGrid[4][1] = MazeContents.OPEN;
-  // this.mazeGrid[4][2] = MazeContents.OPEN;
-  // this.mazeGrid[4][3] = MazeContents.OPEN;
-  // this.mazeGrid[4][4] = MazeContents.WALL;
-  // this.mazeGrid[4][5] = MazeContents.WALL;
-  // this.mazeGrid[4][6] = MazeContents.OPEN;
-  // this.mazeGrid[4][7] = MazeContents.WALL;
-  // this.mazeGrid[5][0] = MazeContents.WALL;
-  // this.mazeGrid[5][1] = MazeContents.OPEN;
-  // this.mazeGrid[5][2] = MazeContents.WALL;
-  // this.mazeGrid[5][3] = MazeContents.OPEN;
-  // this.mazeGrid[5][4] = MazeContents.OPEN;
-  // this.mazeGrid[5][5] = MazeContents.WALL;
-  // this.mazeGrid[5][6] = MazeContents.WALL;
-  // this.mazeGrid[5][7] = MazeContents.WALL;
-  // this.mazeGrid[6][0] = MazeContents.WALL;
-  // this.mazeGrid[6][1] = MazeContents.OPEN;
-  // this.mazeGrid[6][2] = MazeContents.WALL;
-  // this.mazeGrid[6][3] = MazeContents.WALL;
-  // this.mazeGrid[6][4] = MazeContents.OPEN;
-  // this.mazeGrid[6][5] = MazeContents.OPEN;
-  // this.mazeGrid[6][6] = MazeContents.OPEN;
-  // this.mazeGrid[6][7] = MazeContents.WALL;
-  // this.mazeGrid[7][0] = MazeContents.WALL;
-  // this.mazeGrid[7][1] = MazeContents.OPEN;
-  // this.mazeGrid[7][2] = MazeContents.WALL;
-  // this.mazeGrid[7][3] = MazeContents.OPEN;
-  // this.mazeGrid[7][4] = MazeContents.OPEN;
-  // this.mazeGrid[7][5] = MazeContents.WALL;
-  // this.mazeGrid[7][6] = MazeContents.OPEN;
-  // this.mazeGrid[7][7] = MazeContents.WALL;
-  // this.mazeGrid[8][0] = MazeContents.WALL;
-  // this.mazeGrid[8][1] = MazeContents.OPEN;
-  // this.mazeGrid[8][2] = MazeContents.OPEN;
-  // this.mazeGrid[8][3] = MazeContents.WALL;
-  // this.mazeGrid[8][4] = MazeContents.OPEN;
-  // this.mazeGrid[8][5] = MazeContents.WALL;
-  // this.mazeGrid[8][6] = MazeContents.OPEN;
-  // this.mazeGrid[8][7] = MazeContents.WALL;
-  // this.mazeGrid[9][0] = MazeContents.WALL;
-  // this.mazeGrid[9][1] = MazeContents.WALL;
-  // this.mazeGrid[9][2] = MazeContents.WALL;
-  // this.mazeGrid[9][3] = MazeContents.WALL;
-  // this.mazeGrid[9][4] = MazeContents.WALL;
-  // this.mazeGrid[9][5] = MazeContents.WALL;
-  // this.mazeGrid[9][6] = MazeContents.WALL;
-  // this.mazeGrid[9][7] = MazeContents.WALL;
-  // }
-
-  /**
-   * Initializes a maze given a maze file
-   * 
-   * @param filename
-   */
-  // public void initDemoMaze(String filename) {
-  // Scanner mazeFile = null;
-  // try {
-  // mazeFile = new Scanner(new File(filename));
-
-  // while (mazeFile.hasNext()) {
-  // this.width++;
-  // }
-  // while (mazeFile.hasNextLine()) {
-  // this.height++;
-  // }
-
-  // this.mazeGrid = new MazeContents[height][width];
-  // this.start = new MazeLocation(0, 0);
-  // this.finish = new MazeLocation(0, 0);
-
-  // int col = 0;
-
-  // while (mazeFile.hasNextLine()) {
-  // System.out.println("next line");
-  // String line = mazeFile.nextLine();
-  // System.out.println(line);
-
-  // for (int i = 0; i < line.length(); i++) {
-  // System.out.println(col + " " + i);
-  // if (String.valueOf(line.charAt(i)).equals("#")) {
-  // this.mazeGrid[col][i] = MazeContents.WALL;
-  // } else if (String.valueOf(line.charAt(i)).equals(".")) {
-  // this.mazeGrid[col][i] = MazeContents.OPEN;
-  // } else if (String.valueOf(line.charAt(i)).equals("S")) {
-  // this.start.setRow(i);
-  // this.start.setCol(col);
-  // } else if (String.valueOf(line.charAt(i)).equals("F")) {
-  // this.finish.setRow(i);
-  // this.finish.setCol(col);
-  // }
-  // }
-  // col++;
-  // }
-  // mazeFile.close();
-  // } catch (FileNotFoundException e) {
-  // System.out.println("File not found.");
-  // }
-
-  // try {
-  // file = new Scanner(new File(filename));
-  // } catch (FileNotFoundException e) {
-  // System.err.println("Cannot locate file.");
-  // System.exit(-1);
-  // }
-
-  // for(int i = 0; i < height; i++) {
-  // for(int k = 0; k < width; k++) {
-  // while(file.hasNext() || file.hasNextLine()) {
-  // if(file.next().equals("#")) {
-  // mazeGrid[i][j] = MazeContents.WALL;
-  // }
-  // else if(file.next())
-  // }
-  // }
-  // }
-
-  // while(file.hasNext() || file.hasNextLine()) {
-  // if(file.hasNext()
-  // }
-
-  // }
+    this.mazeGrid[0][0] = MazeContents.WALL;
+    this.mazeGrid[0][1] = MazeContents.WALL;
+    this.mazeGrid[0][2] = MazeContents.WALL;
+    this.mazeGrid[0][3] = MazeContents.WALL;
+    this.mazeGrid[0][4] = MazeContents.WALL;
+    this.mazeGrid[0][5] = MazeContents.WALL;
+    this.mazeGrid[0][6] = MazeContents.WALL;
+    this.mazeGrid[0][7] = MazeContents.WALL;
+    this.mazeGrid[1][0] = MazeContents.WALL;
+    this.mazeGrid[1][1] = MazeContents.OPEN;
+    this.mazeGrid[1][2] = MazeContents.OPEN;
+    this.mazeGrid[1][3] = MazeContents.OPEN;
+    this.mazeGrid[1][4] = MazeContents.OPEN;
+    this.mazeGrid[1][5] = MazeContents.OPEN;
+    this.mazeGrid[1][6] = MazeContents.WALL;
+    this.mazeGrid[1][7] = MazeContents.WALL;
+    this.mazeGrid[2][0] = MazeContents.WALL;
+    this.mazeGrid[2][1] = MazeContents.WALL;
+    this.mazeGrid[2][2] = MazeContents.OPEN;
+    this.mazeGrid[2][3] = MazeContents.WALL;
+    this.mazeGrid[2][4] = MazeContents.WALL;
+    this.mazeGrid[2][5] = MazeContents.OPEN;
+    this.mazeGrid[2][6] = MazeContents.WALL;
+    this.mazeGrid[2][7] = MazeContents.WALL;
+    this.mazeGrid[3][0] = MazeContents.WALL;
+    this.mazeGrid[3][1] = MazeContents.OPEN;
+    this.mazeGrid[3][2] = MazeContents.WALL;
+    this.mazeGrid[3][3] = MazeContents.OPEN;
+    this.mazeGrid[3][4] = MazeContents.OPEN;
+    this.mazeGrid[3][5] = MazeContents.OPEN;
+    this.mazeGrid[3][6] = MazeContents.WALL;
+    this.mazeGrid[3][7] = MazeContents.WALL;
+    this.mazeGrid[4][0] = MazeContents.WALL;
+    this.mazeGrid[4][1] = MazeContents.OPEN;
+    this.mazeGrid[4][2] = MazeContents.OPEN;
+    this.mazeGrid[4][3] = MazeContents.OPEN;
+    this.mazeGrid[4][4] = MazeContents.WALL;
+    this.mazeGrid[4][5] = MazeContents.WALL;
+    this.mazeGrid[4][6] = MazeContents.OPEN;
+    this.mazeGrid[4][7] = MazeContents.WALL;
+    this.mazeGrid[5][0] = MazeContents.WALL;
+    this.mazeGrid[5][1] = MazeContents.OPEN;
+    this.mazeGrid[5][2] = MazeContents.WALL;
+    this.mazeGrid[5][3] = MazeContents.OPEN;
+    this.mazeGrid[5][4] = MazeContents.OPEN;
+    this.mazeGrid[5][5] = MazeContents.WALL;
+    this.mazeGrid[5][6] = MazeContents.WALL;
+    this.mazeGrid[5][7] = MazeContents.WALL;
+    this.mazeGrid[6][0] = MazeContents.WALL;
+    this.mazeGrid[6][1] = MazeContents.OPEN;
+    this.mazeGrid[6][2] = MazeContents.WALL;
+    this.mazeGrid[6][3] = MazeContents.WALL;
+    this.mazeGrid[6][4] = MazeContents.OPEN;
+    this.mazeGrid[6][5] = MazeContents.OPEN;
+    this.mazeGrid[6][6] = MazeContents.OPEN;
+    this.mazeGrid[6][7] = MazeContents.WALL;
+    this.mazeGrid[7][0] = MazeContents.WALL;
+    this.mazeGrid[7][1] = MazeContents.OPEN;
+    this.mazeGrid[7][2] = MazeContents.WALL;
+    this.mazeGrid[7][3] = MazeContents.OPEN;
+    this.mazeGrid[7][4] = MazeContents.OPEN;
+    this.mazeGrid[7][5] = MazeContents.WALL;
+    this.mazeGrid[7][6] = MazeContents.OPEN;
+    this.mazeGrid[7][7] = MazeContents.WALL;
+    this.mazeGrid[8][0] = MazeContents.WALL;
+    this.mazeGrid[8][1] = MazeContents.OPEN;
+    this.mazeGrid[8][2] = MazeContents.OPEN;
+    this.mazeGrid[8][3] = MazeContents.WALL;
+    this.mazeGrid[8][4] = MazeContents.OPEN;
+    this.mazeGrid[8][5] = MazeContents.WALL;
+    this.mazeGrid[8][6] = MazeContents.OPEN;
+    this.mazeGrid[8][7] = MazeContents.WALL;
+    this.mazeGrid[9][0] = MazeContents.WALL;
+    this.mazeGrid[9][1] = MazeContents.WALL;
+    this.mazeGrid[9][2] = MazeContents.WALL;
+    this.mazeGrid[9][3] = MazeContents.WALL;
+    this.mazeGrid[9][4] = MazeContents.WALL;
+    this.mazeGrid[9][5] = MazeContents.WALL;
+    this.mazeGrid[9][6] = MazeContents.WALL;
+    this.mazeGrid[9][7] = MazeContents.WALL;
+  }
 
   public void initMaze(String fileName) {
     this.height = 21; // row
     this.width = 27; // column
     this.mazeGrid = new MazeContents[height][width];
-    this.start = new MazeLocation(0, 0);
-    this.finish = new MazeLocation(0, 0);
 
     try {
 
@@ -197,37 +122,33 @@ public class Maze implements DisplayableMaze {
       String data = reader.nextLine();
 
       while (reader.hasNextLine()) {
-        System.out.println("next line");
+        //System.out.println("next line");
 
-        System.out.println(data);
+        //System.out.println(data);
 
         for (int col = 0; col < width; col++) {
-          System.out.println(row + " " + col);
+          //System.out.println(row + " " + col);
           if (String.valueOf(data.charAt(col)).equals("#")) {
             this.mazeGrid[row][col] = MazeContents.WALL;
-            System.out.println(mazeGrid[row][col]);
+            //System.out.println(mazeGrid[row][col]);
           } else if (String.valueOf(data.charAt(col)).equals(".")) {
             this.mazeGrid[row][col] = MazeContents.OPEN;
-            System.out.println(mazeGrid[row][col]);
+            //System.out.println(mazeGrid[row][col]);
           } else if (String.valueOf(data.charAt(col)).equals("S")) {
-            this.start.setRow(row);
-            this.start.setCol(col);
-            this.mazeGrid[row][col] = MazeContents.VISITED;
+            this.start = new MazeLocation(row, col); 
+            //this.mazeGrid[row][col] = MazeContents.VISITED;
           } else if (String.valueOf(data.charAt(col)).equals("F")) {
-            this.finish.setRow(row);
-            this.finish.setCol(col);
-            this.mazeGrid[row][col] = MazeContents.PATH;
+            this.finish = new MazeLocation(row, col); 
+            //this.mazeGrid[row][col] = MazeContents.PATH;
           }
         }
         row++;
         data = reader.nextLine();
-
       }
       reader.close();
     } catch (FileNotFoundException e) {
       System.out.println("File not found.");
     }
-
   }
 
   /** @return height of maze grid */
@@ -270,8 +191,8 @@ public class Maze implements DisplayableMaze {
   public static void main(String[] args) {
     Maze maze = new Maze();
     // MazeViewer viewer = new MazeViewer(maze);
-    maze.initMaze("maze1");
+    maze.initMaze("maze2");
 
-    System.out.println(maze.getContents(0, 0));
+    //System.out.println(maze.getContents(0, 0));
   }
 }
