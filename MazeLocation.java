@@ -116,6 +116,4 @@ public class MazeLocation {
   public String toString() {
     return "("+row+","+col+")";
   }
-
- 
 }

@@ -1,35 +1,51 @@
+import java.io.*;
+import java.util.Scanner;
 class SolveMaze {
 
-  public void mazeStart(Maze maze) {
-    MazeLocation currentLocation = maze.getStart(); 
-    MazeContents path = maze.getContents(currentLocation.getRow(), currentLocation.getCol()); 
-    MazeLocation finishedLocation = maze.getFinish(); 
+  public static boolean startMaze(Maze maze) {
+    MazeLocation startLocation = maze.getStart();
+    return recursiveSolver(maze, startLocation);
+  }
 
-    if(currentLocation.equals(finishedLocation)) {
-      maze.setPath(currentLocation.getRow(), currentLocation.getCol()); 
-      System.out.println("Finished");
+  public static boolean recursiveSolver(Maze maze, MazeLocation currentLocation) {
+    try {
+      Thread.sleep(50);
+    } catch (InterruptedException e) {
+    }
+    ;
+
+    MazeContents currentContents = maze.getContents(currentLocation.getRow(), currentLocation.getCol());
+
+    if (currentLocation.equals(maze.getFinish())) {
+      maze.setPath(currentLocation.getRow(), currentLocation.getCol());
+      // maze.setVisited(currentLocation.getRow(), currentLocation.getCol());
+      return true;
+    } else if (currentContents.equals(MazeContents.WALL) || currentContents.equals(MazeContents.VISITED)) {
+      return false;
     } else {
-
-
-    }
-    
-    }
-  }
-
-  public boolean recursiveSolver(Maze m, MazeLocation currentLocation, MazeLocation neighbor, MazeDirection dir) {
-    if(!(m.getContents(currentLocation.getRow(), currentLocation.getCol()).equals(MazeContents.WALL) && m.getContents(currentLocation.getRow(), currentLocation.getCol()).equals(MazeContents.VISITED)))  {
-      return true; 
-    }
-    else if () {
-
-    return false
+      maze.setVisited(currentLocation.getRow(), currentLocation.getCol());
+      boolean getToFinish = recursiveSolver(maze, currentLocation.neighbor(MazeDirection.NORTH))
+          || recursiveSolver(maze, currentLocation.neighbor(MazeDirection.SOUTH))
+          || recursiveSolver(maze, currentLocation.neighbor(MazeDirection.WEST))
+          || recursiveSolver(maze, currentLocation.neighbor(MazeDirection.EAST));
+     
+      return getToFinish;
     }
   }
+
+  /** Class containing a file reading demo */
+
 
   public static void main(String[] args) {
     Maze maze = new Maze();
     MazeViewer viewer = new MazeViewer(maze);
-    maze.initDemoMaze();
+    maze.initDemoMaze("maze1");
 
+
+    if (startMaze(maze)) {
+      System.out.println("Finished!");
+    } else {
+      System.out.println("Cannot Finish");
+    }
   }
 }

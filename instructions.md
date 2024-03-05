@@ -50,7 +50,7 @@ There are two possible stop conditions: one for a success, and one for a failure
     * Mark the current square as part of the path (`MazeContents.PATH`), and 
     * Report success by returning `true`
 2. If the current location is **already visited or is a wall** (`MazeContents.VISITED` or `MazeContents.WALL`), then return `false` to indicate that this is not the correct path to reach the Finish.
-
+M
 **Simplification Step**:
 If you are not at a stop condition, you will want to recursively call your maze solver. To do this, first mark the current square as visited (`MazeContents.VISITED`), thus simplifying the problem by reducing the number of "open" squares we still need to search. 
 
