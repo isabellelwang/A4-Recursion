@@ -3,11 +3,24 @@ import java.util.Scanner;
 
 class SolveMaze {
 
+  /**
+   * Starts maze and calls on recursive method
+   * 
+   * @param maze Maze to be solved
+   * @return boolean true or false whether maze is finished
+   */
   public static boolean startMaze(Maze maze) {
     MazeLocation startLocation = maze.getStart();
     return recursiveSolver(maze, startLocation);
   }
 
+  /**
+   * Recursively searches squares to the finish line
+   * 
+   * @param maze            maze to find finish line
+   * @param currentLocation current location the robot is at
+   * @return boolean whether robot reaches finish
+   */
   public static boolean recursiveSolver(Maze maze, MazeLocation currentLocation) {
     try {
       Thread.sleep(50);
@@ -42,10 +55,13 @@ class SolveMaze {
 
   public static void main(String[] args) {
     Maze maze = new Maze();
+
+    // Scanner
     Scanner in = new Scanner(System.in);
     System.out.println("Please type: maze1 or maze2");
     String mazeInput = in.nextLine();
 
+    //continues to ask for input if input is not maze1 or maze2
     while (!(mazeInput.equals("maze1") || mazeInput.equals("maze2"))) {
       System.out.print("Invalid Input. Press enter to continue");
       in.nextLine();
@@ -56,7 +72,7 @@ class SolveMaze {
     MazeViewer viewer = new MazeViewer(maze);
     maze.initMaze(mazeInput);
 
-
+    // command line prompt
     if (args.length == 0) {
       maze.initMaze("maze1");
     } else {
@@ -65,6 +81,7 @@ class SolveMaze {
       }
     }
 
+    // Starts the maze
     if (startMaze(maze)) {
       System.out.println("Finished!");
     } else {

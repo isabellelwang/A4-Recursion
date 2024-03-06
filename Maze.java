@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Maze implements DisplayableMaze {
 
-  private int height;
+  private int height; 
   private int width;
   private MazeContents[][] mazeGrid;
   private MazeLocation start;
@@ -109,8 +109,8 @@ public class Maze implements DisplayableMaze {
   }
 
   /**
-   * 
-   * @param fileName
+   * initializes maze in a 2D array with contents like open, wall, and visited.
+   * @param fileName file of maze as input
    */
   public void initMaze(String fileName) {
     this.height = 21; // row
@@ -183,27 +183,33 @@ public class Maze implements DisplayableMaze {
   }
 
   /**
-   * 
-   * @param i
-   * @param j
+   * Set location to visited
+   * @param i int row of location
+   * @param j int column of location
    */
   public void setVisited(int i, int j) {
     mazeGrid[i][j] = MazeContents.VISITED;
   }
 
+  /**
+   * Set location to path
+   * @param i int row of location
+   * @param j int column of location
+   */
   public void setPath(int i, int j) {
     mazeGrid[i][j] = MazeContents.PATH;
   }
 
   /**
-   * 
-   * @param i
-   * @param j
+   * Set location to dead end
+   * @param i int row of location
+   * @param j int column of location
    */
   public void setDeadEnd(int i, int j) {
     mazeGrid[i][j] = MazeContents.DEAD_END;
   }
 
+  //testing
   public static void main(String[] args) {
     Maze maze = new Maze();
     // MazeViewer viewer = new MazeViewer(maze);

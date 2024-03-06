@@ -11,7 +11,7 @@ your work, please indicate the status of each item
 
 ## Assignment Points:
 
-__YES___ 1 pt: Maze class implements DisplayableMaze interface
+__Yes___ 1 pt: Maze class implements DisplayableMaze interface
 
 ___Yes__ 2 pts: Maze class implements recursive `solve` method
 
@@ -19,11 +19,11 @@ ___Yes__ 2 pts: `solve` method correctly determines if solution exists
 
 ___Yes__ 2 pts: recursive style is simple and direct
 
-__Part___ 3 pts: Reads maze from arbitrary files:
+__Yes___ 3 pts: Reads maze from arbitrary files:
 
       _Yes____ 2 pts: Just one of command line or standard input
 
-      ___No__ 1 pt: Both reading modes
+      __Yes__ 1 pt: Both reading modes
 
 
 ## General Items:
@@ -32,7 +32,7 @@ ___Yes__ 4 pts: Program compiles without errors or warnings
 
 ___Yes__ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
-_____ 2 pt: Complies with style guidelines (missing items 1 pt each):
+__Yes___ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
       __Yes___ Classes & class members all have Javadoc header comments
 
