@@ -56,11 +56,6 @@ class SolveMaze {
     MazeViewer viewer = new MazeViewer(maze);
     maze.initMaze(mazeInput);
 
-    if (startMaze(maze)) {
-      System.out.println("Finished!");
-    } else {
-      System.out.println("Cannot Finish");
-    }
 
     if (args.length == 0) {
       maze.initMaze("maze1");
