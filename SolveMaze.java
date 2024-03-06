@@ -42,20 +42,33 @@ class SolveMaze {
 
   public static void main(String[] args) {
     Maze maze = new Maze();
-
     Scanner in = new Scanner(System.in);
     System.out.println("Please type: maze1 or maze2");
-    String mazeInput = in.nextLine(); 
+    String mazeInput = in.nextLine();
 
-    while(!(mazeInput.equals("maze1") || mazeInput.equals("maze2"))) {
+    while (!(mazeInput.equals("maze1") || mazeInput.equals("maze2"))) {
       System.out.print("Invalid Input. Press enter to continue");
-      in.nextLine(); 
+      in.nextLine();
       System.out.println("Please type: maze1 or maze2");
       mazeInput = in.nextLine();
     }
-    
+
     MazeViewer viewer = new MazeViewer(maze);
     maze.initMaze(mazeInput);
+
+    if (startMaze(maze)) {
+      System.out.println("Finished!");
+    } else {
+      System.out.println("Cannot Finish");
+    }
+
+    if (args.length == 0) {
+      maze.initMaze("maze1");
+    } else {
+      for (String s : args) {
+        maze.initMaze(s);
+      }
+    }
 
     if (startMaze(maze)) {
       System.out.println("Finished!");

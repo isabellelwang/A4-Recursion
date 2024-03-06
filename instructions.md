@@ -96,6 +96,7 @@ For full credit, your program should read the maze in either of two ways :
 
 Both of these input sources can be opened using a `Scanner`, so you should try to read maze files from both inputs using as much of the same code as possible.
 
+
 ### Machine-Readable Maze Encoding
 
 In a map file grid, a `#` represents a wall, and a `.` or ` ` (a space character) represents a passageway.  The symbols `S` and `F`, respectively, represent the start and finish of the maze, and each will appear exactly once. Here is an example of a simple 6x9 maze file:

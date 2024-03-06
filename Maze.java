@@ -108,6 +108,10 @@ public class Maze implements DisplayableMaze {
     this.mazeGrid[9][7] = MazeContents.WALL;
   }
 
+  /**
+   * 
+   * @param fileName
+   */
   public void initMaze(String fileName) {
     this.height = 21; // row
     this.width = 27; // column
@@ -178,6 +182,11 @@ public class Maze implements DisplayableMaze {
     return this.finish;
   }
 
+  /**
+   * 
+   * @param i
+   * @param j
+   */
   public void setVisited(int i, int j) {
     mazeGrid[i][j] = MazeContents.VISITED;
   }
@@ -186,6 +195,11 @@ public class Maze implements DisplayableMaze {
     mazeGrid[i][j] = MazeContents.PATH;
   }
 
+  /**
+   * 
+   * @param i
+   * @param j
+   */
   public void setDeadEnd(int i, int j) {
     mazeGrid[i][j] = MazeContents.DEAD_END;
   }

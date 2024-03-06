@@ -11,39 +11,39 @@ your work, please indicate the status of each item
 
 ## Assignment Points:
 
-_____ 1 pt: Maze class implements DisplayableMaze interface
+__YES___ 1 pt: Maze class implements DisplayableMaze interface
 
-_____ 2 pts: Maze class implements recursive `solve` method
+___Yes__ 2 pts: Maze class implements recursive `solve` method
 
-_____ 2 pts: `solve` method correctly determines if solution exists
+___Yes__ 2 pts: `solve` method correctly determines if solution exists
 
-_____ 2 pts: recursive style is simple and direct
+___Yes__ 2 pts: recursive style is simple and direct
 
-_____ 3 pts: Reads maze from arbitrary files:
+__Part___ 3 pts: Reads maze from arbitrary files:
 
-      _____ 2 pts: Just one of command line or standard input
+      _Yes____ 2 pts: Just one of command line or standard input
 
-      _____ 1 pt: Both reading modes
+      ___No__ 1 pt: Both reading modes
 
 
 ## General Items:
 
-_____ 4 pts: Program compiles without errors or warnings
+___Yes__ 4 pts: Program compiles without errors or warnings
 
-_____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
+___Yes__ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
 _____ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
-      _____ Classes & class members all have Javadoc header comments
+      __Yes___ Classes & class members all have Javadoc header comments
 
-      _____ Clear and consistent indentation of bracketed sections
+      ___Yes__ Clear and consistent indentation of bracketed sections
 
-      _____ Adheres to Java conventions on naming & capitalization
+      ___Yes__ Adheres to Java conventions on naming & capitalization
 
-      _____ Methods & variables all have clear and accurate names
+      __Yes___ Methods & variables all have clear and accurate names
 
-      _____ Methods avoid confusing side effects
+      ___Yes__ Methods avoid confusing side effects
 
-_____ 1 pt: All required files included with submission & named correctly (including completed checklist file)
+_Yes____ 1 pt: All required files included with submission & named correctly (including completed checklist file)
 
-_____ 1 pt: readme.md contains reflection on the assignment
+____Yes_ 1 pt: readme.md contains reflection on the assignment
